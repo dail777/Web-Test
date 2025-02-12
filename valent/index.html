@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Valentine PIN Box</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="pin-box">
+        <h2>Masukkan PIN</h2>
+        <div class="pin-input">
+            <input type="tel" maxlength="1" id="pin1" oninput="moveNext(this, 'pin2')" pattern="[0-9]*">
+            <input type="tel" maxlength="1" id="pin2" oninput="moveNext(this, 'pin3')" onkeydown="moveBack(event, 'pin1')" pattern="[0-9]*">
+            <input type="tel" maxlength="1" id="pin3" oninput="moveNext(this, 'pin4')" onkeydown="moveBack(event, 'pin2')" pattern="[0-9]*">
+            <input type="tel" maxlength="1" id="pin4" oninput="moveNext(this, 'pin5')" onkeydown="moveBack(event, 'pin3')" pattern="[0-9]*">
+            <input type="tel" maxlength="1" id="pin5" oninput="moveNext(this, 'pin6')" onkeydown="moveBack(event, 'pin4')" pattern="[0-9]*">
+            <input type="tel" maxlength="1" id="pin6" onkeydown="moveBack(event, 'pin5')" pattern="[0-9]*">
+        </div>
+        <button class="submit-btn" onclick="checkPin()">Submit</button>
+        <div class="popup" id="popup">
+            <button class="close-btn" onclick="closePopup()">&times;</button>
+            <div class="message">PARAH BANGET!!!! 😡</div>
+        </div>
+    </div>
+
+    <div class="popup" id="successPopup">
+        <button class="close-btn" onclick="closeSuccessPopup()">&times;</button>
+        <div class="message">Hallo Bubub!</div>
+        <div class="image-grid">
+            <img src="https://via.placeholder.com/50" alt="Gambar 1">
+            <img src="https://via.placeholder.com/50" alt="Gambar 2">
+            <img src="https://via.placeholder.com/50" alt="Gambar 3">
+            <img src="https://via.placeholder.com/50" alt="Gambar 4">
+            <img src="https://via.placeholder.com/50" alt="Gambar 5">
+            <img src="https://via.placeholder.com/50" alt="Gambar 6">
+        </div>
+        <div class="envelope" onclick="showValentineMessage()">
+            <img src="https://via.placeholder.com/50" alt="Amplop Pesan">
+        </div>
+    </div>
+
+    <div class="popup" id="valentinePopup">
+        <button class="close-btn" onclick="closeValentinePopup()">&times;</button>
+        <div class="message">Selamat Hari Valentine!</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
